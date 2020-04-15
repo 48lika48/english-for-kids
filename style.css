@@ -1,0 +1,182 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    width: 90%; 
+    margin: 0 auto;
+    background-color: white;
+}
+
+header {
+    height: 100px;
+    display: flex;
+}
+
+/* menu */
+.menu {
+    padding-top: 40px;
+    transition: all ease-in-out 20s;
+}
+
+.menu-btn {
+    position: relative;
+    display: flex;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;            
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger {
+    width: 50px;
+    height: 6px;
+    background: #555;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before, .menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: #555;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+    transform: translateY(-16px);
+}
+
+.menu-btn__burger::after {
+    transform: translateY(16px);
+}
+
+/* burger */
+.menu{
+    display: block;
+}
+
+.burger-list {
+    width: 400px;
+    height: 704px;
+    display: none;
+    padding: 150px 0px 0px 100px;
+    position: relative;
+    top: -110px;
+    left: -168px;
+    z-index: 1;
+    list-style-type: none;
+}
+
+#burger-list {
+    transition: all ease-in-out 2s;
+}
+
+li {
+    color: darkslategray;
+    padding-left: 50px;
+}
+
+li a{
+    font-size: 26px;
+    line-height: 2.2;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+
+li:hover{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.show {
+    display: block;
+}
+
+.menu a.active {
+    color: white;
+}
+
+.menu a:not(.active):hover {
+    cursor: pointer;
+    color: white;
+}
+
+/* switcher */
+.switcher {
+    position: absolute;
+    text-align: center;
+    color: white;
+    left: 1070px;
+    top: 40px;
+}
+
+label {
+    display: block;
+    left: 0;
+    top: 0;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    z-index: 10;
+    line-height: 50px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border-radius: 10px;
+    background: darkslategray;
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+}
+
+label:after {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: block;
+    border-radius: 10px;
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+}
+
+#checkbox {
+    display: none;
+}
+
+:checked + label {
+    left: 0px;
+}
+
+:checked + label:after {
+    left: 100px;
+}
+
+/* cards */
+main {
+    padding-top: 30px;
+}
+
+.wrapper {
+    height: 580px;
+    display: grid;
+    grid-template-columns: repeat(4, 275px);
+    grid-template-rows: repeat(2, 275px);
+    grid-column-gap: 33px;
+    grid-row-gap: 20px;
+    overflow: hidden;
+}
+
+.card-body img {
+    height: 170px; 
+    width: 233px; 
+    display: block;
+}
