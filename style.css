@@ -58,6 +58,20 @@ header {
     transform: translateY(16px);
 }
 
+/* animation */
+.menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
 /* burger */
 .menu{
     display: block;
@@ -73,6 +87,8 @@ header {
     left: -168px;
     z-index: 1;
     list-style-type: none;
+    background: linear-gradient(to top, #F3969A, #6CC3D5);
+    /* background: linear-gradient(to top, #FFCE67, #56CC9D); */
 }
 
 #burger-list {
@@ -137,12 +153,14 @@ label {
 }
 
 label:after {
+    content: "TRAIN!";
     width: 100px;
     height: 50px;
     position: absolute;
     left: 0px;
     top: 0px;
     display: block;
+    background: linear-gradient(to right, #F3969A, #6CC3D5);
     border-radius: 10px;
     transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     cursor: pointer;
@@ -158,6 +176,8 @@ label:after {
 
 :checked + label:after {
     left: 100px;
+    background: linear-gradient(to right, #FFCE67, #56CC9D);
+    content: "PLAY:)";
 }
 
 /* cards */
