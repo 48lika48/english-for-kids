@@ -1,21 +1,22 @@
-
-//menu
+let menu = document.getElementById('menu');
 const menuBtn = document.getElementById('menu-btn');
 const burgerList = document.getElementById('burger-list');
+const wrapper = document.getElementById('wrapper');
+let checkbox = document.getElementById('checkbox');
+let numCategory;
 
+//menu
 menuBtn.addEventListener('click', () => {
   menuBtn.classList.toggle('open');
   burgerList.classList.toggle('show');
 });
 
-let menu = document.getElementById('menu');
 menu.addEventListener('click', (event) => {
   menu.querySelectorAll('a').forEach(el => el.classList.remove('active'));
   event.target.classList.add('active');
 });
 
 //gradient
-let checkbox = document.getElementById('checkbox');
 checkbox.addEventListener('click', (event) => {
   if(checkbox.checked == true) {
     burgerList.style.background="linear-gradient(to top, #FFCE67, #56CC9D)";
@@ -464,36 +465,54 @@ const cards = [
   ]
 ]
 
-//cards category
+//target category
 burgerList.onclick = function(event) {
 let target = event.target;
 if (target.tagName != 'A') return;
-changeImg(target);
+let childrenA = Array.from(burgerList.children);
+let selectedTarget = target.closest('li');
+let numTarget = childrenA.indexOf(selectedTarget);
+changeDetails(target, numTarget);
 menuBtn.classList.toggle('open');
 burgerList.classList.toggle('show');
 };
 
-let chooseCard = document.getElementById('wrapper');
-chooseCard.onclick = function(event) {
+wrapper.onclick = function(event) {
 let target = event.target.closest('.card');
 target = target.firstElementChild;
 if (target.tagName != 'DIV') return;
-changeImg(target);
+let childrenDiv = Array.from(document.getElementsByClassName('card-header'));
+let numTarget = childrenDiv.indexOf(target) + 1;
+changeDetails(target, numTarget);
 };
 
-function changeImg (target) {
-let category = target.innerHTML;
-if (cards[0].includes(category)) {
-  let num = cards[0].indexOf(category) + 1;
-  let newImg = cards[num].map(item => item.image); 
-  let newName = cards[num].map(item => item.word); 
+//play
+function playAudio(url) {
+  new Audio(url).play();
+}
+
+//change details
+function changeDetails (target, numTarget) {
+  let category = target.innerHTML;
   let currentImg = document.getElementsByTagName('img');
   let currentName = document.getElementsByClassName('card-header');
-  let linksImg = Array.from(currentImg).map((currentValue, index) => {
-    currentValue.src = newImg[index];
-  });
-  let linksName = Array.from(currentName).map((currentValue, index) => {
-    currentValue.innerHTML = newName[index];
-  });
+
+  if (cards[0].includes(category)) {
+    numCategory = cards[0].indexOf(category) + 1;
+    let newImg = cards[numCategory].map(item => item.image); 
+    let newName = cards[numCategory].map(item => item.word); 
+    let linksImg = Array.from(currentImg).map((currentValue, index) => {
+      currentValue.src = newImg[index];
+    });
+    let linksName = Array.from(currentName).map((currentValue, index) => {
+      currentValue.innerHTML = newName[index];
+    });
+  }else{
+    let arrAudio = cards[numCategory].map(currentValue => currentValue.audioSrc);
+    let currentAudio = arrAudio[numTarget -1];
+    if(checkbox.checked == false) {
+      playAudio(currentAudio);
+    }
+  }
 }
-}
+
