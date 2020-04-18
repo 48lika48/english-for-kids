@@ -472,16 +472,22 @@ if (target.tagName != 'A') return;
 let childrenA = Array.from(burgerList.children);
 let selectedTarget = target.closest('li');
 let numTarget = childrenA.indexOf(selectedTarget);
+console.log(target.innerHTML);
 changeDetails(target, numTarget);
 menuBtn.classList.toggle('open');
 burgerList.classList.toggle('show');
+if (target.innerHTML == 'Main Page') {
+  let rotate = document.getElementsByClassName('rotate');
+  rotate = Array.from(rotate);
+  rotate.forEach(el => el.classList.add('none'));
+}
 };
 
 wrapper.onclick = function(event) {
-let target = event.target.closest('.card');
-target = target.firstElementChild;
-if (target.tagName != 'DIV') return;
-let childrenDiv = Array.from(document.getElementsByClassName('card-header'));
+let target = event.target.closest('.cards');
+target = target.children[0].children[0].children[0];
+if (target.tagName != 'SPAN') return;
+let childrenDiv = Array.from(document.getElementsByClassName('textFront'));
 let numTarget = childrenDiv.indexOf(target) + 1;
 changeDetails(target, numTarget);
 };
@@ -491,21 +497,45 @@ function playAudio(url) {
   new Audio(url).play();
 }
 
+//cards rotate
+let rotate = document.getElementsByClassName('rotate');
+rotate = Array.from(rotate);
+rotate.forEach(item => item.addEventListener( 'click', function() {
+  let parent = item.parentElement.parentElement.parentElement;
+  parent.classList.toggle('is-flipped');
+}));
+
+Array.from(document.getElementsByClassName('card__face--back')).forEach(item => item.addEventListener( 'mouseover', function() {
+  let parent = item.parentElement;
+  parent.classList.toggle('is-flipped');
+  rotate.forEach(el => el.classList.remove('none'));
+}));
+
 //change details
 function changeDetails (target, numTarget) {
   let category = target.innerHTML;
-  let currentImg = document.getElementsByTagName('img');
-  let currentName = document.getElementsByClassName('card-header');
+  let currentImgFront = Array.from(document.getElementsByClassName('cardImgFront'));
+  let currentImgBack = Array.from(document.getElementsByClassName('cardImgBack'));
+  let currentNameFront = Array.from(document.getElementsByClassName('textFront'));
+  let currentNameBack = Array.from(document.getElementsByClassName('textBack'));
 
   if (cards[0].includes(category)) {
+    rotate.forEach(el => el.classList.remove('none'));
     numCategory = cards[0].indexOf(category) + 1;
     let newImg = cards[numCategory].map(item => item.image); 
-    let newName = cards[numCategory].map(item => item.word); 
-    let linksImg = Array.from(currentImg).map((currentValue, index) => {
+    let newNameFront = cards[numCategory].map(item => item.word);
+    let newNameBack = cards[numCategory].map(item => item.translation); 
+    let linksImgFront = Array.from(currentImgFront).map((currentValue, index) => {
       currentValue.src = newImg[index];
     });
-    let linksName = Array.from(currentName).map((currentValue, index) => {
-      currentValue.innerHTML = newName[index];
+    let linksImgBack = Array.from(currentImgBack).map((currentValue, index) => {
+      currentValue.src = newImg[index];
+    });
+    let linksNameFront = Array.from(currentNameFront).map((currentValue, index) => {
+      currentValue.innerHTML = newNameFront[index];
+    });
+    let linksNameBack = Array.from(currentNameBack).map((currentValue, index) => {
+      currentValue.innerHTML = newNameBack[index];
     });
   }else{
     let arrAudio = cards[numCategory].map(currentValue => currentValue.audioSrc);
@@ -515,4 +545,5 @@ function changeDetails (target, numTarget) {
     }
   }
 }
+
 
