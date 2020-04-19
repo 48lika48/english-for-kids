@@ -131,7 +131,7 @@ li:hover{
     position: absolute;
     text-align: center;
     color: white;
-    left: 1070px;
+    left: 70%;
     top: 40px;
 }
 
@@ -239,3 +239,56 @@ main {
     transform: rotateY(-180deg);
 }
 
+@media screen and (max-width: 680px) {
+    body {
+		width: 680px;
+    }
+    .switcher {
+        left: 65%;
+    }
+    label {
+        width: 150px;
+        letter-spacing: 1px;
+    }    
+    label:after {
+        width: 75px;
+    }
+    :checked + label:after {
+        left: 75px;
+    }
+    li {
+        padding-left: 85px;
+    }
+    .wrapper {
+        height: 1180px;
+        grid-template-columns: repeat(2, 275px);
+        grid-template-rows: repeat(4, 275px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body {
+		width: 320px;
+    }
+    .switcher {
+        left: 50%;
+    }
+    label {
+        width: 120px;
+        letter-spacing: 0px;
+    }    
+    label:after {
+        width: 60px;
+    }
+    :checked + label:after {
+        left: 60px;
+    }
+    li {
+        padding-left: 85px;
+    }
+    .wrapper {
+        height: 2360px;
+        grid-template-columns: repeat(1, 275px);
+        grid-template-rows: repeat(8, 275px);
+    }
+}
