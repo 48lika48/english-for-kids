@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+    <title>English for kids</title>
+</head>
+<body>
+    <header>
+        <div id="menu" class="menu">
+            <div id="menu-btn" class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+            <ul id="burger-list" class="burger-list">
+                <li><a class="active">Main Page</a></li>
+                <li><a>Action (set A)</a></li>
+                <li><a>Action (set B)</a></li>
+                <li><a>Colors</a></li>
+                <li><a>Adjective</a></li>
+                <li><a>Animal (set A)</a></li>
+                <li><a>Animal (set B)</a></li>
+                <li><a>Clothes</a></li>
+                <li><a>Emotion</a></li>
+            </ul>
+        </div>
+        <div class="switcher">
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox"></label>
+        </div>
+    </header>
+    <main id="main">
+        <div id="wrapper" class="wrapper">
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-success mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Action (set A)</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/hug.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-success mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Action (set A)</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/hug.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-dark mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Action (set B)</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/swim.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-dark mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Action (set B)</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/swim.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-warning mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Colors</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/yellow.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-warning mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Colors</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/yellow.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-info mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Adjective</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/funny.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-info mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Adjective</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/funny.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-warning mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Animal (set A)</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/cat.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-warning mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Animal (set A)</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/cat.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-info mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Animal (set B)</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/turtle.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-info mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Animal (set B)</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/turtle.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-success mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Clothes</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/boot.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-success mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Clothes</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/boot.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cards">
+                    <div class="card text-white bg-dark mb-3 card__face card__face--front" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textFront">Emotion</span><img class="rotate none" src="img/rotate.png"></img>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgFront" src="img/surprised.jpg" alt="Card image">
+                        </div>
+                    </div>
+                    <div class="card text-white bg-dark mb-3 card__face card__face--back" style="max-width: 20rem;">
+                        <div class="card-header"><span class="textBack">Emotion</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="cardImgBack" src="img/surprised.jpg" alt="Card image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
