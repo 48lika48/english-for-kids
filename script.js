@@ -1,33 +1,34 @@
-let menu = document.getElementById('menu');
+const menu = document.getElementById('menu');
 const menuBtn = document.getElementById('menu-btn');
 const burgerList = document.getElementById('burger-list');
 const wrapper = document.getElementById('wrapper');
-let checkbox = document.getElementById('checkbox');
+const checkbox = document.getElementById('checkbox');
+const rotate = Array.from(document.getElementsByClassName('rotate'));
 let numCategory;
 
-//menu
+// menu
 menuBtn.addEventListener('click', () => {
   menuBtn.classList.toggle('open');
   burgerList.classList.toggle('show');
 });
 
 menu.addEventListener('click', (event) => {
-  menu.querySelectorAll('a').forEach(el => el.classList.remove('active'));
+  menu.querySelectorAll('a').forEach((el) => el.classList.remove('active'));
   event.target.classList.add('active');
 });
 
-//gradient
-checkbox.addEventListener('click', (event) => {
-  if(checkbox.checked == true) {
-    burgerList.style.background="linear-gradient(to top, #FFCE67, #56CC9D)";
+// gradient
+checkbox.addEventListener('click', () => {
+  if (checkbox.checked === true) {
+    burgerList.style.background = 'linear-gradient(to top, #FFCE67, #56CC9D)';
   }
-  if(checkbox.checked == false) {
-    burgerList.style.background="linear-gradient(to top, #F3969A, #6CC3D5)";
+  if (checkbox.checked === false) {
+    burgerList.style.background = 'linear-gradient(to top, #F3969A, #6CC3D5)';
   }
 });
 
-//cards
-const cards = [ 
+// cards
+const cards = [
   ['Main Page', 'Action (set A)', 'Action (set B)', 'Colors', 'Adjective', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotion'],
   [
     {
@@ -61,489 +62,482 @@ const cards = [
     {
       word: 'Emotion',
       image: 'img/surprised.jpg',
-    }
+    },
   ],
   [
     {
       word: 'cry',
       translation: 'плакать',
       image: 'img/cry.jpg',
-      audioSrc: 'audio/cry.mp3'
+      audioSrc: 'audio/cry.mp3',
     },
     {
       word: 'dance',
       translation: 'танцевать',
       image: 'img/dance.jpg',
-      audioSrc: 'audio/dance.mp3'
+      audioSrc: 'audio/dance.mp3',
     },
     {
       word: 'dive',
       translation: 'нырять',
       image: 'img/dive.jpg',
-      audioSrc: 'audio/dive.mp3'
+      audioSrc: 'audio/dive.mp3',
     },
     {
       word: 'fly',
       translation: 'летать',
       image: 'img/fly.jpg',
-      audioSrc: 'audio/fly.mp3'
+      audioSrc: 'audio/fly.mp3',
     },
     {
       word: 'catch',
       translation: 'ловить',
       image: 'img/catch.jpg',
-      audioSrc: 'audio/catch.mp3'
+      audioSrc: 'audio/catch.mp3',
     },
     {
       word: 'jump',
       translation: 'прыгать',
       image: 'img/jump.jpg',
-      audioSrc: 'audio/jump.mp3'
+      audioSrc: 'audio/jump.mp3',
     },
     {
       word: 'hug',
       translation: 'обнимать',
       image: 'img/hug.jpg',
-      audioSrc: 'audio/hug.mp3'
+      audioSrc: 'audio/hug.mp3',
     },
     {
       word: 'draw',
       translation: 'рисовать',
       image: 'img/draw.jpg',
-      audioSrc: 'audio/draw.mp3'
-    }
+      audioSrc: 'audio/draw.mp3',
+    },
   ],
   [
     {
       word: 'open',
       translation: 'открывать',
       image: 'img/open.jpg',
-      audioSrc: 'audio/open.mp3'
+      audioSrc: 'audio/open.mp3',
     },
     {
       word: 'swim',
       translation: 'плавать',
       image: 'img/swim.jpg',
-      audioSrc: 'audio/swim.mp3'
+      audioSrc: 'audio/swim.mp3',
     },
     {
       word: 'ride',
       translation: 'ездить',
       image: 'img/ride.jpg',
-      audioSrc: 'audio/ride.mp3'
+      audioSrc: 'audio/ride.mp3',
     },
     {
       word: 'play',
       translation: 'играть',
       image: 'img/play.jpg',
-      audioSrc: 'audio/play.mp3'
+      audioSrc: 'audio/play.mp3',
     },
     {
       word: 'point',
       translation: 'указывать',
       image: 'img/point.jpg',
-      audioSrc: 'audio/point.mp3'
+      audioSrc: 'audio/point.mp3',
     },
     {
       word: 'skip',
       translation: 'прыгать',
       image: 'img/skip.jpg',
-      audioSrc: 'audio/skip.mp3'
+      audioSrc: 'audio/skip.mp3',
     },
     {
       word: 'run',
       translation: 'бегать',
       image: 'img/run.jpg',
-      audioSrc: 'audio/run.mp3'
+      audioSrc: 'audio/run.mp3',
     },
     {
       word: 'sing',
       translation: 'петь',
       image: 'img/sing.jpg',
-      audioSrc: 'audio/sing.mp3'
-    }
+      audioSrc: 'audio/sing.mp3',
+    },
   ],
   [
     {
       word: 'green',
       translation: 'зелёный',
       image: 'img/green.jpg',
-      audioSrc: 'audio/green.mp3'
+      audioSrc: 'audio/green.mp3',
     },
     {
       word: 'red',
       translation: 'красный',
       image: 'img/red.jpg',
-      audioSrc: 'audio/red.mp3'
+      audioSrc: 'audio/red.mp3',
     },
     {
       word: 'yellow',
       translation: 'жёлтый',
       image: 'img/yellow.jpg',
-      audioSrc: 'audio/yellow.mp3'
+      audioSrc: 'audio/yellow.mp3',
     },
     {
       word: 'purple',
       translation: 'фиолетовый',
       image: 'img/purple.jpg',
-      audioSrc: 'audio/purple.mp3'
+      audioSrc: 'audio/purple.mp3',
     },
     {
       word: 'brown',
       translation: 'коричневый',
       image: 'img/brown.jpg',
-      audioSrc: 'audio/brown.mp3'
+      audioSrc: 'audio/brown.mp3',
     },
     {
       word: 'blue',
       translation: 'синий',
       image: 'img/blue.jpg',
-      audioSrc: 'audio/blue.mp3'
+      audioSrc: 'audio/blue.mp3',
     },
     {
       word: 'black',
       translation: 'чёрный',
       image: 'img/black.jpg',
-      audioSrc: 'audio/black.mp3'
+      audioSrc: 'audio/black.mp3',
     },
     {
       word: 'pink',
       translation: 'розовый',
       image: 'img/pink.png',
-      audioSrc: 'audio/pink.mp3'
-    }
+      audioSrc: 'audio/pink.mp3',
+    },
   ],
   [
     {
       word: 'cute',
       translation: 'хорошенький',
       image: 'img/cute.jpg',
-      audioSrc: 'audio/cute.mp3'
+      audioSrc: 'audio/cute.mp3',
     },
     {
       word: 'pretty',
       translation: 'милый',
       image: 'img/pretty.jpg',
-      audioSrc: 'audio/pretty.mp3'
+      audioSrc: 'audio/pretty.mp3',
     },
     {
       word: 'big',
       translation: 'большой',
       image: 'img/big.jpg',
-      audioSrc: 'audio/big.mp3'
+      audioSrc: 'audio/big.mp3',
     },
     {
       word: 'funny',
       translation: 'смешной',
       image: 'img/funny.jpg',
-      audioSrc: 'audio/funny.mp3'
+      audioSrc: 'audio/funny.mp3',
     },
     {
       word: 'bold',
       translation: 'лысый',
       image: 'img/bold.jpg',
-      audioSrc: 'audio/bold.mp3'
+      audioSrc: 'audio/bold.mp3',
     },
     {
       word: 'small',
       translation: 'маленький',
       image: 'img/small.jpg',
-      audioSrc: 'audio/small.mp3'
+      audioSrc: 'audio/small.mp3',
     },
     {
       word: 'fluffy',
       translation: 'пушистый',
       image: 'img/fluffy.jpg',
-      audioSrc: 'audio/fluffy.mp3'
+      audioSrc: 'audio/fluffy.mp3',
     },
     {
       word: 'slow',
       translation: 'медленный',
       image: 'img/slow.jpg',
-      audioSrc: 'audio/slow.mp3'
-    }
+      audioSrc: 'audio/slow.mp3',
+    },
   ],
   [
     {
       word: 'dog',
       translation: 'собака',
       image: 'img/dog.jpg',
-      audioSrc: 'audio/dog.mp3'
+      audioSrc: 'audio/dog.mp3',
     },
     {
       word: 'chicken',
       translation: 'курица',
       image: 'img/chicken.jpg',
-      audioSrc: 'audio/chicken.mp3'
+      audioSrc: 'audio/chicken.mp3',
     },
     {
       word: 'horse',
       translation: 'лошадь',
       image: 'img/horse.jpg',
-      audioSrc: 'audio/horse.mp3'
+      audioSrc: 'audio/horse.mp3',
     },
     {
       word: 'chick',
       translation: 'цыплёнок',
       image: 'img/chick.jpg',
-      audioSrc: 'audio/chick.mp3'
+      audioSrc: 'audio/chick.mp3',
     },
     {
       word: 'sheep',
       translation: 'овца',
       image: 'img/sheep.jpg',
-      audioSrc: 'audio/sheep.mp3'
+      audioSrc: 'audio/sheep.mp3',
     },
     {
       word: 'rabbit',
       translation: 'кролик',
       image: 'img/rabbit.jpg',
-      audioSrc: 'audio/rabbit.mp3'
+      audioSrc: 'audio/rabbit.mp3',
     },
     {
       word: 'cat',
       translation: 'кот',
       image: 'img/cat.jpg',
-      audioSrc: 'audio/cat.mp3'
+      audioSrc: 'audio/cat.mp3',
     },
     {
       word: 'pig',
       translation: 'свинья',
       image: 'img/pig.jpg',
-      audioSrc: 'audio/pig.mp3'
-    }
+      audioSrc: 'audio/pig.mp3',
+    },
   ],
   [
     {
       word: 'bird',
       translation: 'птица',
       image: 'img/bird.jpg',
-      audioSrc: 'audio/bird.mp3'
+      audioSrc: 'audio/bird.mp3',
     },
     {
       word: 'fish',
       translation: 'рыба',
       image: 'img/fish.jpg',
-      audioSrc: 'audio/fish.mp3'
+      audioSrc: 'audio/fish.mp3',
     },
     {
       word: 'frog',
       translation: 'жаба',
       image: 'img/frog.jpg',
-      audioSrc: 'audio/frog.mp3'
+      audioSrc: 'audio/frog.mp3',
     },
     {
       word: 'giraffe',
       translation: 'жираф',
       image: 'img/giraffe.jpg',
-      audioSrc: 'audio/giraffe.mp3'
+      audioSrc: 'audio/giraffe.mp3',
     },
     {
       word: 'lion',
       translation: 'лев',
       image: 'img/lion.jpg',
-      audioSrc: 'audio/lion.mp3'
+      audioSrc: 'audio/lion.mp3',
     },
     {
       word: 'mouse',
       translation: 'мышь',
       image: 'img/mouse.jpg',
-      audioSrc: 'audio/mouse.mp3'
+      audioSrc: 'audio/mouse.mp3',
     },
     {
       word: 'turtle',
       translation: 'черепаха',
       image: 'img/turtle.jpg',
-      audioSrc: 'audio/turtle.mp3'
+      audioSrc: 'audio/turtle.mp3',
     },
     {
       word: 'dolphin',
       translation: 'дельфин',
       image: 'img/dolphin.jpg',
-      audioSrc: 'audio/dolphin.mp3'
-    }
+      audioSrc: 'audio/dolphin.mp3',
+    },
   ],
   [
     {
       word: 'boot',
       translation: 'ботинок',
       image: 'img/boot.jpg',
-      audioSrc: 'audio/boot.mp3'
+      audioSrc: 'audio/boot.mp3',
     },
     {
       word: 'dress',
       translation: 'платье',
       image: 'img/dress.jpg',
-      audioSrc: 'audio/dress.mp3'
+      audioSrc: 'audio/dress.mp3',
     },
     {
       word: 'blouse',
       translation: 'блузка',
       image: 'img/blouse.jpg',
-      audioSrc: 'audio/blouse.mp3'
+      audioSrc: 'audio/blouse.mp3',
     },
     {
       word: 'shirt',
       translation: 'рубашка',
       image: 'img/shirt.jpg',
-      audioSrc: 'audio/shirt.mp3'
+      audioSrc: 'audio/shirt.mp3',
     },
     {
       word: 'pants',
       translation: 'брюки',
       image: 'img/pants.jpg',
-      audioSrc: 'audio/pants.mp3'
+      audioSrc: 'audio/pants.mp3',
     },
     {
       word: 'shoe',
       translation: 'туфли',
       image: 'img/shoe.jpg',
-      audioSrc: 'audio/shoe.mp3'
+      audioSrc: 'audio/shoe.mp3',
     },
     {
       word: 'skirt',
       translation: 'юбка',
       image: 'img/skirt.jpg',
-      audioSrc: 'audio/skirt.mp3'
+      audioSrc: 'audio/skirt.mp3',
     },
     {
       word: 'coat',
       translation: 'пальто',
       image: 'img/coat.jpg',
-      audioSrc: 'audio/coat.mp3'
-    }
+      audioSrc: 'audio/coat.mp3',
+    },
   ],
   [
     {
       word: 'angry',
       translation: 'сердитый',
       image: 'img/angry.jpg',
-      audioSrc: 'audio/angry.mp3'
+      audioSrc: 'audio/angry.mp3',
     },
     {
       word: 'smile',
       translation: 'улыбка',
       image: 'img/smile.jpg',
-      audioSrc: 'audio/smile.mp3'
+      audioSrc: 'audio/smile.mp3',
     },
     {
       word: 'laugh',
       translation: 'смех',
       image: 'img/laugh.jpg',
-      audioSrc: 'audio/laugh.mp3'
-    },   
+      audioSrc: 'audio/laugh.mp3',
+    },
     {
       word: 'sad',
       translation: 'грустный',
       image: 'img/sad.jpg',
-      audioSrc: 'audio/sad.mp3'
-    },   
+      audioSrc: 'audio/sad.mp3',
+    },
     {
       word: 'tired',
       translation: 'уставший',
       image: 'img/tired.jpg',
-      audioSrc: 'audio/tired.mp3'
+      audioSrc: 'audio/tired.mp3',
     },
     {
       word: 'happy',
       translation: 'счастливый',
       image: 'img/happy.jpg',
-      audioSrc: 'audio/happy.mp3'
+      audioSrc: 'audio/happy.mp3',
     },
     {
       word: 'scared',
       translation: 'испуганный',
       image: 'img/scared.jpg',
-      audioSrc: 'audio/scared.mp3'
+      audioSrc: 'audio/scared.mp3',
     },
     {
       word: 'surprised',
       translation: 'удивлённый',
       image: 'img/surprised.jpg',
-      audioSrc: 'audio/surprised.mp3'
-    }
-  ]
-]
+      audioSrc: 'audio/surprised.mp3',
+    },
+  ],
+];
 
-//target category
-burgerList.onclick = function(event) {
-let target = event.target;
-if (target.tagName != 'A') return;
-let childrenA = Array.from(burgerList.children);
-let selectedTarget = target.closest('li');
-let numTarget = childrenA.indexOf(selectedTarget);
-console.log(target.innerHTML);
-changeDetails(target, numTarget);
-menuBtn.classList.toggle('open');
-burgerList.classList.toggle('show');
-if (target.innerHTML == 'Main Page') {
-  let rotate = document.getElementsByClassName('rotate');
-  rotate = Array.from(rotate);
-  rotate.forEach(el => el.classList.add('none'));
-}
-};
-
-wrapper.onclick = function(event) {
-let target = event.target.closest('.cards');
-target = target.children[0].children[0].children[0];
-if (target.tagName != 'SPAN') return;
-let childrenDiv = Array.from(document.getElementsByClassName('textFront'));
-let numTarget = childrenDiv.indexOf(target) + 1;
-changeDetails(target, numTarget);
-};
-
-//play
+// play
 function playAudio(url) {
   new Audio(url).play();
 }
 
-//cards rotate
-let rotate = document.getElementsByClassName('rotate');
-rotate = Array.from(rotate);
-rotate.forEach(item => item.addEventListener( 'click', function() {
-  let parent = item.parentElement.parentElement.parentElement;
-  parent.classList.toggle('is-flipped');
-}));
-
-Array.from(document.getElementsByClassName('card__face--back')).forEach(item => item.addEventListener( 'mouseover', function() {
-  let parent = item.parentElement;
-  parent.classList.toggle('is-flipped');
-  rotate.forEach(el => el.classList.remove('none'));
-}));
-
-//change details
-function changeDetails (target, numTarget) {
-  let category = target.innerHTML;
-  let currentImgFront = Array.from(document.getElementsByClassName('cardImgFront'));
-  let currentImgBack = Array.from(document.getElementsByClassName('cardImgBack'));
-  let currentNameFront = Array.from(document.getElementsByClassName('textFront'));
-  let currentNameBack = Array.from(document.getElementsByClassName('textBack'));
+// change details
+function changeDetails(target, numTarget) {
+  const category = target.innerHTML;
+  const currentImgFront = Array.from(document.getElementsByClassName('cardImgFront'));
+  const currentImgBack = Array.from(document.getElementsByClassName('cardImgBack'));
+  const currentNameFront = Array.from(document.getElementsByClassName('textFront'));
+  const currentNameBack = Array.from(document.getElementsByClassName('textBack'));
 
   if (cards[0].includes(category)) {
-    rotate.forEach(el => el.classList.remove('none'));
+    rotate.forEach((el) => el.classList.remove('none'));
     numCategory = cards[0].indexOf(category) + 1;
-    let newImg = cards[numCategory].map(item => item.image); 
-    let newNameFront = cards[numCategory].map(item => item.word);
-    let newNameBack = cards[numCategory].map(item => item.translation); 
-    let linksImgFront = Array.from(currentImgFront).map((currentValue, index) => {
+    const newImg = cards[numCategory].map((item) => item.image);
+    const newNameFront = cards[numCategory].map((item) => item.word);
+    const newNameBack = cards[numCategory].map((item) => item.translation);
+    Array.from(currentImgFront).forEach((currentValue, index) => {
       currentValue.src = newImg[index];
     });
-    let linksImgBack = Array.from(currentImgBack).map((currentValue, index) => {
+    Array.from(currentImgBack).forEach((currentValue, index) => {
       currentValue.src = newImg[index];
     });
-    let linksNameFront = Array.from(currentNameFront).map((currentValue, index) => {
+    Array.from(currentNameFront).forEach((currentValue, index) => {
       currentValue.innerHTML = newNameFront[index];
     });
-    let linksNameBack = Array.from(currentNameBack).map((currentValue, index) => {
+    Array.from(currentNameBack).forEach((currentValue, index) => {
       currentValue.innerHTML = newNameBack[index];
     });
-  }else{
-    let arrAudio = cards[numCategory].map(currentValue => currentValue.audioSrc);
-    let currentAudio = arrAudio[numTarget -1];
-    if(checkbox.checked == false) {
+  } else {
+    const arrAudio = cards[numCategory].map((currentValue) => currentValue.audioSrc);
+    const currentAudio = arrAudio[numTarget - 1];
+    if (checkbox.checked === false) {
       playAudio(currentAudio);
     }
   }
 }
 
+// target category
+burgerList.onclick = function burgerListCategory(event) {
+  const { target } = event;
+  if (target.tagName !== 'A') return;
+  const childrenA = Array.from(burgerList.children);
+  const selectedTarget = target.closest('li');
+  const numTarget = childrenA.indexOf(selectedTarget);
+  changeDetails(target, numTarget);
+  menuBtn.classList.toggle('open');
+  burgerList.classList.toggle('show');
+  if (target.innerHTML === 'Main Page') {
+    rotate.forEach((el) => el.classList.add('none'));
+  }
+};
 
+wrapper.onclick = function wrapperCategory(event) {
+  let target = event.target.closest('.cards');
+  target = target.children[0].children[0].children[0];
+  if (target.tagName !== 'SPAN') return;
+  const childrenDiv = Array.from(document.getElementsByClassName('textFront'));
+  const numTarget = childrenDiv.indexOf(target) + 1;
+  changeDetails(target, numTarget);
+};
+
+// cards rotate
+rotate.forEach((item) => item.addEventListener('click', () => {
+  const parent = item.parentElement.parentElement.parentElement;
+  parent.classList.toggle('is-flipped');
+}));
+
+Array.from(document.getElementsByClassName('card__face--back')).forEach((item) => item.addEventListener('mouseover', () => {
+  const parent = item.parentElement;
+  parent.classList.toggle('is-flipped');
+  rotate.forEach((el) => el.classList.remove('none'));
+}));
